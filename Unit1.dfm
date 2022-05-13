@@ -11,7 +11,11 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = OnCreate
   OnShow = FormShow
+  DesignSize = (
+    678
+    321)
   PixelsPerInch = 96
   TextHeight = 13
   object CEFWindowParent1: TCEFWindowParent
@@ -19,6 +23,7 @@ object Form1: TForm1
     Top = 0
     Width = 433
     Height = 321
+    Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 0
   end
   object Chromium1: TChromium

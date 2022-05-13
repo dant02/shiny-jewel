@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCEFChromiumCore, uCEFChromium,
-  uCEFWinControl, uCEFWindowParent, Vcl.ExtCtrls;
+  uCEFWinControl, uCEFWindowParent, Vcl.ExtCtrls, Vcl.AppEvnts;
 
 type
   TForm1 = class(TForm)
@@ -14,6 +14,7 @@ type
     Timer1: TTimer;
     procedure FormShow(Sender: TObject);
     procedure OnTimer(Sender: TObject);
+    procedure OnCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,6 +34,12 @@ begin
 
 end;
 
+procedure TForm1.OnCreate(Sender: TObject);
+begin
+  Chromium1.MultiBrowserMode := True;
+  Chromium1.DefaultURL       := 'https://www.seznam.cz';
+end;
+
 procedure TForm1.OnTimer(Sender: TObject);
 begin
   Timer1.Enabled := False;
@@ -41,9 +48,6 @@ begin
   begin
     Timer1.Enabled := True;
   end
-  else begin
-    Chromium1.LoadURL('https://www.seznam.cz');
-  end;
 end;
 
 end.
